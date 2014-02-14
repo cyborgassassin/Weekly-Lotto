@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.nw-engine.com/modules.xsd">
-	<module name="Weekly Lottery" version="1.0.5" author="KyleMassacre,MrDJK" description="Players can buy lottery tickets to win the jackpot at the end of the week" />
+	<module name="Weekly Lottery" version="1.0.3" author="KyleMassacre,MrDJK" description="Players can buy lottery tickets to win the jackpot at the end of the week" />
 	<key name="lottoTicketPrice" description="Price Per Ticket" value="100" />
 	<key name="lottoMaxTickets" description="Max tickets a user may have" value="20" />
 	<key name="lottoJackpot" description="This is the jackpot for the weekly lotto and do not change this or players may be real unhappy about it" value="1000" />
