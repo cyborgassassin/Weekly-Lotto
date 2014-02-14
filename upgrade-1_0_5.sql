@@ -1,1 +1,0 @@
-ALTER TABLE  `weekly_lottery` ADD  `amount` MEDIUMINT UNSIGNED NOT NULL;
