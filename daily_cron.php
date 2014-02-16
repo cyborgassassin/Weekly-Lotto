@@ -1,5 +1,8 @@
 <?php
 $date = GetConfigValue("lottoDateRun", "weekly_lottery");
+
+$diff = GetConfigValue("lottoWinDifficulty","weekly_lottery");
+$rand = mt_rand(1,$diff);
 /* is today the day your paying out?*/
 if (date("l") == ucfirst($date))
 {
@@ -16,6 +19,14 @@ if (date("l") == ucfirst($date))
     {
         shuffle($players); //Shuffle the array containing players.
         $winnerKey = array_rand($players); //Select a random key from the players array.
+
+        if($diff != $rand)
+		{
+            $db->Execute("insert into weekly_lottery_winners (userid,amount) values (?,?)",0,0);
+            $db->Execute('TRUNCATE TABLE weekly_lottery');
+            ResultMessage("no one won");
+            return;
+		}
         $winner    = $players[$winnerKey]; //Get the id of the winner using the random key.
 
         $getName = $db->Execute('SELECT username FROM users WHERE ( id = ? )', $winner); //Get the name of the winner.
@@ -36,6 +47,7 @@ if (date("l") == ucfirst($date))
             SendChatLine(Translate('User %s has won the lotto.', $name));
         if (function_exists('SendMessage'))
             SendMessage($winner, 'Weekly Lottery', Translate('Congrats %s!!! You have just won the weekly lottery with a jackpot of %s !Currency', $name, $jackpotvalue), 1);
+        $db->Execute("insert into weekly_lottery_winners (userid,amount) values (?,?)",$winner,$jackpotvalue);
     }
 
     //Reset lottery.
