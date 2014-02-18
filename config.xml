@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.nw-engine.com/modules.xsd">
-	<module name="Weekly Lottery" version="1.0.4" author="KyleMassacre, MrDJK" description="Players can buy lottery tickets to win the jackpot at the end of the week" />
+	<module name="Weekly Lottery" version="1.0.4" author="KyleMassacre" description="Players can buy lottery tickets to win the jackpot at the end of the week" />
 	<key name="lottoTicketPrice" description="Price Per Ticket" value="100" />
 	<key name="lottoMaxTickets" description="Max tickets a user may have" value="20" />
 	<key name="lottoJackpot" description="This is the jackpot for the weekly lotto and do not change this or players may be real unhappy about it" value="1000" />
-	<key name="lottoJackPerc" desctiption="This is the key that sets the amount of money that will be deducted from the player to be put in for the jackpot" value="1000" />
+	<key name="lottoJackPerc" description="This is the key that sets the amount of money that will be deducted from the player to be put in for the jackpot" value="1000" />
 	<key name="lottoDateRun" description="Sets the date for the weekly drawing" options="sunday,monday,tuesday,wednesday,thursday,friday,saturday" value="saturday" />
-	<key name="lottoJackStart" desctiption="Enter 0 to start with no jackpot, otherwise enter a value for the jackpot to start each week." value="1000" />
-	<key name="lottoWinDifficulty" desctiption="A difficulty value to win the lottory from 1-this value. This will randomize from 1 to this value and if this value equals the random number you have a winner" value="5" />
+	<key name="lottoJackStart" description="Enter 0 to start with no jackpot, otherwise enter a value for the jackpot to start each week." value="1000" />
+	<key name="lottoWinDifficulty" description="A difficulty value to win the lottory from 1-(value1). This will randomize from 1 to this value and if this value equals value2 you have a winner. Value2 must be greater than/equal to 1 and less than/equal to value1 and MUST BE a comma seperated value" value="5,2" />
+	<key name="lottoRevolve" description="Setting option to on means that there is a chance that someone may not win and setting to off means that it will force a winner each time their is a drawing" options="on,off" value="off" />
 	<user_data table="weekly_lottery" column="Uid" />
 	<user_data table="weekly_lottery_winners" column="userid" />
 </configuration>
