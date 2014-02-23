@@ -93,7 +93,7 @@ $limiter = 10;
 $result = $db->Execute("select id, date, userid, amount from weekly_lottery_winners order by date desc limit ?",$limiter);
 $count = $db->Execute("select count(*) as num from weekly_lottery_winners limit ?",$limiter);
 if($result->fields[0] < $limiter)
-    $amount = $result->fields[0];
+    $amount = $count->fields[0];
 else
     $amount = $limiter;
 $count->Close();
